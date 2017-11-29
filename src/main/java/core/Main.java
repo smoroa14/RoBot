@@ -1,5 +1,7 @@
 package core;
 
+import commands.cmdHI;
+import listeners.commandListener;
 import listeners.readyListener;
 import net.dv8tion.jda.core.AccountType;
 import net.dv8tion.jda.core.JDA;
@@ -22,6 +24,9 @@ public class Main {
 
         builder.setStatus(OnlineStatus.ONLINE);
 
+        addListerners();
+        addCommands();
+
         try {
             JDA jda = builder.buildBlocking();
         } catch (LoginException e) {
@@ -33,8 +38,14 @@ public class Main {
         }
     }
 
+    public static void addCommands()
+    {
+        commandHandler.commands.put("hi", new cmdHI());
+    }
+
     private static void addListerners()
     {
         builder.addEventListener(new readyListener());
+        builder.addEventListener(new commandListener());
     }
 }

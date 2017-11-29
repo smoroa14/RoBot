@@ -15,9 +15,7 @@ public class readyListener extends ListenerAdapter{
         for (Guild g : event.getJDA().getGuilds()) {
             try {
                 tc = g.getTextChannelsByName("bot", false).get(0);
-                //g.getTextChannelsByName("bot", false).get(0).sendMessage("-----------------------------------ONLY FOR BOTS-------------------------------------------").queue();
-                tc.getMessageById(tc.getLatestMessageId()).queue();
-                System.out.println("message");
+                //g.getTextChannelsByName("bot", false).get(0).sendMessage("-----------------------------------ONLY FOR BOTS, OR BOT COMMANDS-------------------------------------------").queue();
             }catch (Exception e)
             {
 
