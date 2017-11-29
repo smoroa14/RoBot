@@ -2,6 +2,8 @@ package core;
 
 import commands.Command;
 
+import java.io.IOException;
+import java.text.ParseException;
 import java.util.HashMap;
 
 public class commandHandler {
@@ -17,7 +19,13 @@ public class commandHandler {
 
             if(safe)
             {
-                commands.get(cmd.invoke).action(cmd.args, cmd.event);
+                try {
+                    commands.get(cmd.invoke).action(cmd.args, cmd.event);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 commands.get(cmd.invoke).executed(safe, cmd.event);
             }else{
                 commands.get(cmd.invoke).executed(safe, cmd.event);

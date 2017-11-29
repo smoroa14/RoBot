@@ -1,5 +1,6 @@
 package core;
 
+import commands.Autochannel;
 import commands.cmdHI;
 import commands.cmdImgur;
 import listeners.commandListener;
@@ -43,6 +44,7 @@ public class Main {
     {
         commandHandler.commands.put("hi", new cmdHI());
         commandHandler.commands.put("img", new cmdImgur());
+        commandHandler.commands.put("autoch", new Autochannel());
     }
 
     private static void addListerners()
