@@ -1,6 +1,7 @@
 package core;
 
 import commands.cmdHI;
+import commands.cmdImgur;
 import listeners.commandListener;
 import listeners.readyListener;
 import net.dv8tion.jda.core.AccountType;
@@ -41,6 +42,7 @@ public class Main {
     public static void addCommands()
     {
         commandHandler.commands.put("hi", new cmdHI());
+        commandHandler.commands.put("img", new cmdImgur());
     }
 
     private static void addListerners()

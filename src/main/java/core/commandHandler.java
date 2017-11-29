@@ -11,11 +11,11 @@ public class commandHandler {
 
     public static void handlerCommand(commandParser.commandContainer cmd)
     {
-        if(commands.containsKey(cmd.invoke))
+        if(commands.containsKey(cmd.invoke.toLowerCase()))
         {
-            boolean safe = commands.get(cmd.invoke).called(cmd.args, cmd.event);
+            boolean safe = !commands.get(cmd.invoke).called(cmd.args, cmd.event);
 
-            if(!safe)
+            if(safe)
             {
                 commands.get(cmd.invoke).action(cmd.args, cmd.event);
                 commands.get(cmd.invoke).executed(safe, cmd.event);

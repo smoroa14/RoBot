@@ -11,12 +11,18 @@ public class cmdHI implements Command {
 
     @Override
     public void action(String[] args, MessageReceivedEvent event) {
-        event.getTextChannel().sendMessage("HI").queue();
+        String name = event.getMember().getNickname();
+        if(name == null)name = event.getAuthor().getName();
+        event.getTextChannel().sendMessage("Hi " + name).queue();
+        for (int i = 0; i < 10; i++) {
+            event.getTextChannel().sendMessage(".ping").queue();
+
+        }
     }
 
     @Override
     public void executed(boolean success, MessageReceivedEvent event) {
-        System.out.println("-HI wurde ausgeführt");
+        System.out.println(success?"-HI wurde erfolgreich ausgeführt":"-HI wurde nicht erfolgreich ausgeführt");
     }
 
     @Override
