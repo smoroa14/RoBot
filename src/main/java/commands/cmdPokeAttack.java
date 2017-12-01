@@ -27,15 +27,18 @@ public class cmdPokeAttack implements Command{
             Player you = Main.liP.get(Main.liP.indexOf(new Player("", id, null)));
             if(args.length==0 || !you.liPok.contains(new Pokemon(args[0], 0, AttackTyp.FEUER, null)))
             {
-                event.getTextChannel().sendMessage("´´´\nBitte Namen vom Pokemon angeben das du besitzt!\n´´´");
+                event.getTextChannel().sendMessage("´´´\nBitte Namen vom Pokemon angeben das du besitzt!\n´´´").queue();
                 return;
             }
             Pokemon deinPokemon = you.liPok.get(you.liPok.indexOf(new Pokemon(args[0], 0, AttackTyp.FEUER, null)));
             BasePokemon gegnerPokemon = Main.liPokes.get(rand.nextInt(Main.liPokes.size()));
-            event.getTextChannel().sendMessage("´´´\nDu greifst mit "+deinPokemon.name+" das Pokemon "+gegnerPokemon.name+" an.\n´´´");
+            event.getTextChannel().sendMessage("´´´\nDu greifst mit "+deinPokemon.name+" das Pokemon "+gegnerPokemon.name+" an.\n´´´").queue();
 
 
+        }else{
+            event.getTextChannel().sendMessage("´´´\nfalse channel\n´´´").queue();
         }
+
     }
 
     @Override
